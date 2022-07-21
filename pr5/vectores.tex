@@ -1,0 +1,33 @@
+%!TeX root=main.tex
+
+\section{Vectores}
+
+Los vectores en Maxima se escriben con corchetes
+(\maximain{[}, \maximain{]}) y las coordenadas
+separadas por comas (\maximain{,}).
+\begin{maximai}
+ u:[1,2,0,3];
+\end{maximai}\begin{maximao}
+ \left[ 1 , 2 , 0 , 3 \right]
+\end{maximao}\begin{maximai}
+ v:[-1,2,-3,2];
+\end{maximai}\begin{maximao}
+ \left[ -1 , 2 , -3 , 2 \right]
+\end{maximao}
+
+Las operaciones de vectores son la operación de suma
+de vectores (\maximain{+}) y la multiplicación por
+un escalar (\maximain{*}).
+\begin{maximai}
+ u+v;
+\end{maximai}\begin{maximao}
+ \left[ 0 , 4 , -3 , 5 \right]
+\end{maximao}\begin{maximai}
+ 3*v;
+\end{maximai}\begin{maximao}
+ \left[ -3 , 6 , -9 , 6 \right]
+\end{maximao}\begin{maximai}
+ -5*u;
+\end{maximai}\begin{maximao}
+ \left[ -5 , -10 , 0 , -15 \right]
+\end{maximao}

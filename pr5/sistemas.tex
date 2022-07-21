@@ -1,0 +1,31 @@
+%!TeX root=main.tex
+
+\section{Sistemas de ecuaciones lineales}
+
+Para resolver sistemas de ecuaciones lineales se usa el
+comando \maximain{linsolve}. Esta función admite dos argumentos,
+el primer argumento es la lista de ecuaciones y el segundo es
+la lista de las incógnitas.
+\begin{maximai}
+ linsolve([x-2*y-z = 1, x-y=1, 2*x+y-3*z=4],[x,y,z]);
+\end{maximai}\begin{maximao}
+ \left[ x={{4}\over{3}} , y={{1}\over{3}} , z=-{{1}\over{3}}
+ \right]
+\end{maximao}
+En el ejemplo anterior el sistema es compatible determinado, ya
+que se obtiene una única solución.
+\begin{maximai}
+ linsolve([x-2*y-z = 1, x-y=1, 2*x+y-3*z=4,x+y+z=1],[x,y,z]);
+\end{maximai}\begin{maximao}
+ \left[\  \right]
+\end{maximao}
+El sistema del ejemplo anterior es incompatible, ya que no existe
+solución.
+\begin{maximai}
+ linsolve([x-2*y-z = 1, x-y=1, 2*x-3*y-z=2],[x,y,z]);
+\end{maximai}\begin{maximao}
+ \left[ x=1-{\it \%r}_{1} , y=-{\it \%r}_{1} , z={\it \%r}_{1}
+ \right]
+\end{maximao}
+El sistema anterior es compatible indeterminado, ya que la solución
+depende de un parámetro \maximain{\%r1}.

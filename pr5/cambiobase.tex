@@ -1,0 +1,52 @@
+%!TeX root=main.tex
+
+\section{Cambio de base}
+
+Las coordenadas de un vector respecto de una base
+se pueden calcular usando la matriz de cambio de base.
+Si un vector $v$ tiene coordenadas $(a_1,\ldots, a_n)$
+en la base $B'=\{v_1,\ldots,v_n\}$, ¿cómo se calculan
+las coordenadas del vector $v$ respecto otra base $B$?
+Para ello habrá que calcular la matriz de cambio de base.
+
+Veamos un ejemplo. Se tiene una base $B'=\{v_1,v_2,v_3\}$
+de $\mathbb{R}^3$ siendo los vectores de la base (respecto
+la base canónica)
+\begin{align*}
+ v_1 & = (1,0,1), \\
+ v_2 & = (-1,1,0), \\
+ v_3 & = (0,1,-1). \\
+\end{align*}
+Y el vector $v=(4,1,-2)$ está dado en las coordenadas respecto
+la base canónica. ¿Cuáles son las coordenadas del vector
+$v$ respecto la base $B'$?
+Para ello formamos la matriz cambio de base de la base $B'$ a
+la base canónica, escribiendo los vectores de la base $B'$
+respecto la base canónica en columnas en la matriz $M$.
+\begin{maximai}
+ v1:[1,0,1]$
+\end{maximai}\begin{maximal}
+ v2:[-1,1,0]$
+\end{maximal}\begin{maximal}
+ v3:[0,1,-1]$
+\end{maximal}\begin{maximai}
+ M:transpose(matrix(v1,v2,v3));
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&-1&0
+  \cr 0&1&1\cr 1&0&-1\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}
+Ya que la matriz $M$ convierte vectores en coordenadas en la base
+$B'$ a la base canónica habrá que calcular $M^{-1}$ que será
+la matriz de cambio de base de las coordenadas canónica a las
+coordenadas en la base $B'$. De esta manera se puede calcular
+el vector $v$ en las coordenadas de la base $B'$.
+\begin{maximai}
+ v:[4,1,-2]$
+\end{maximai}\begin{maximai}
+ invert(M).v;
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi {{3
+  }\over{2}}\cr -{{5}\over{2}}\cr {{7}\over{2}}\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}

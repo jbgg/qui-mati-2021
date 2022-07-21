@@ -1,0 +1,148 @@
+%!TeX root=main.tex
+
+\section{Operaciones y funciones de matrices}
+
+\begin{itemize}
+ \item \textbf{Suma y resta de matrices.} La suma de matrices se
+  realiza el operador \maximain{+} y la resta de matrices con el
+  operador \maximain{-}.
+  \begin{maximai}
+   A+B;
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 0&1&4\cr
+    5&-1&-1\cr 1&3&-1\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Multiplicación escalar.} El producto de un número por
+  una matriz se realiza con \maximain{*}.
+  \begin{maximai}
+   2*A;
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 2&2&6\cr
+   6&0&-2\cr 0&4&2\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Multiplicación de matrices.} La multiplicación de dos
+  matrices se lleva a cabo con el operador punto \maximain{.}.
+  \begin{maximai}
+   A.B;
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 4&2&-5
+    \cr -4&-1&5\cr 5&-1&-2\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Potencia de una matriz.} La potencia de una matriz
+  se calcula con \maximain{\^}\maximain{\^}.
+  \begin{maximai}
+   A^^7;
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 2797&2077
+    &2455\cr 1983&1664&1463\cr 1416&1322&1617\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Matriz traspuesta.} La matriz traspuesta se calcula con
+  \maximain{transpose}.
+  \begin{maximai}
+   transpose(A);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&3&0\cr
+   1&0&2\cr 3&-1&1\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Matriz inversa.} La matriz inversa de una matriz se
+  calcula con \maximain{invert}.
+  \begin{maximai}
+   invert(A);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi {{2
+    }\over{17}}&{{5}\over{17}}&-{{1}\over{17}}\cr -{{3}\over{17}}&{{1
+    }\over{17}}&{{10}\over{17}}\cr {{6}\over{17}}&-{{2}\over{17}}&-{{3
+   }\over{17}}\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Rango de una matriz.} El rango de una matriz se calcula
+  con \maximain{rank}.
+  \begin{maximai}
+   rank(A);
+  \end{maximai}\begin{maximao}
+   3
+  \end{maximao}
+ \item \textbf{Determinante de una matriz.} El determinante de una
+  matriz se calcula con \maximain{determinant}.
+  \begin{maximai}
+   determinant(A);
+  \end{maximai}\begin{maximao}
+   17
+  \end{maximao}
+ \item \textbf{Matriz identidad.} La matriz identidad de orden $n$
+  se puede escribir como \maximain{ident(n)}.
+  \begin{maximai}
+   ident(4);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&0&0&0
+    \cr 0&1&0&0\cr 0&0&1&0\cr 0&0&0&1\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+\end{itemize}
+
+También existe la manera de trabajar con elementos de
+una matriz.
+\begin{enumerate}
+ \item \textbf{Elemento de la posición $(i,j)$.} Por ejemplo para
+  obtener el elemento de la fila $2$ y columna $3$ de la matriz $A$
+  se hace los siguiente.
+  \begin{maximai}
+   A[2,3];
+  \end{maximai}\begin{maximao}
+   -1
+  \end{maximao}
+ \item \textbf{Obtención de una fila.} Para obtener la segunda fila
+  de la matriz $A$, se puede escribir.
+  \begin{maximai}
+   A[2];
+  \end{maximai}\begin{maximao}
+   \left[ 3 , 0 , -1 \right]
+  \end{maximao}
+ \item \textbf{Obtención de una columna.} Para obtener la tercera
+  columna de la matriz $A$, se escribe.
+  \begin{maximai}
+   col(A, 3);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 3\cr -1
+   \cr 1\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Obtención de una submatriz.} El comando para obtener
+  una submatriz es
+  \begin{center}
+   \maximain{submatrix(i1,i2,...,A,j1,j2,...)}
+  \end{center}
+  que devuelve la submatriz de $A$ eliminando las filas
+  \maximain{i1,i2,...} y las columnas \maximain{j1,j2,...}.
+  \begin{maximai}
+   submatrix(1,A,1,3);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 0\cr 2
+   \cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Agregado de filas.} El comando para agregar filas a
+  una matriz $A$ es
+  \begin{center}
+   \maximain{addrow(A,f1,f2,...)}.
+  \end{center}
+  \begin{maximai}
+   addrow(A,[1,3,1],[2,2,2]);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&1&3\cr
+    3&0&-1\cr 0&2&1\cr 1&3&1\cr 2&2&2\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item \textbf{Agregado de columnas.} El comando para agregar columnas
+  a una matriz $A$ es
+  \begin{center}
+   \maximain{addcol(A,f1,f2,...)}.
+  \end{center}
+  \begin{maximai}
+   addcol(A,[1,3,1],[2,2,2]);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&1&3&1&2
+    \cr 3&0&-1&3&2\cr 0&2&1&1&2\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+\end{enumerate}

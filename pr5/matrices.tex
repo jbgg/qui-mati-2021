@@ -1,0 +1,36 @@
+%!TeX root=main.tex
+
+\section{Matrices}
+
+Para definir las matrices se usa el comando \maximain{matrix}
+definiendo las filas, por ejemplo la matriz
+\begin{equation*}
+ A = \begin{pmatrix}
+  1 & 1 & 3 \\
+  3 & 0 & -1 \\
+  0 & 2 & 1 \\
+ \end{pmatrix}
+\end{equation*}
+se define como
+\begin{maximai}
+ A:matrix([1,1,3],[3,0,-1],[0,2,1]);
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&1&3\cr
+ 3&0&-1\cr 0&2&1\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}
+Y la matriz 
+\begin{equation*}
+ B = \begin{pmatrix}
+  -1 & 0 & 1 \\
+  2 & -1 & 0 \\
+  1 & 1 & -2 \\
+ \end{pmatrix}
+\end{equation*}
+se define como
+\begin{maximai}
+ B:matrix([-1,0,1],[2,-1,0],[1,1,-2]);
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi -1&0&1
+  \cr 2&-1&0\cr 1&1&-2\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}

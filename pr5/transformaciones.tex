@@ -1,0 +1,63 @@
+%!TeX root=main.tex
+
+\section{Transformaciones elementales por filas}
+
+Las transformaciones elementales por filas a una matriz $A$
+se pueden realizar de la siguiente manera.
+\begin{itemize}
+ \item \maximain{rowswap(A,i,j)}. Intercambia la fila $i$ y
+  la fila $j$ de la matriz $A$, esto es intercambia $F_i$ y
+  $F_j$.
+ \item \maximain{rowop(A,i,j,a)}. Realiza la transformación
+  a la fila $F_i$ que la cambia por $F_i-aF_j$.
+ \item \maximain{A[i]:a*A[i]}. Multiplica la fila $i$ por $a$,
+  esto es $F_i = aF_i$.
+\end{itemize}
+
+Las funciones \maximain{rowswap} y \maximain{rowop} no cambian
+el valor de la matriz $A$, solamente calcula una nueva matriz
+con la transformación realizada.
+
+A continuación mostramos algunos ejemplos de transformaciones
+elementales por fila.
+
+\begin{itemize}
+ \item Modificar la matriz $A$ multiplicando la segunda fila
+  por $1/2$.
+  \begin{maximai}
+   A[2]:1/2*A[2]$
+  \end{maximai}\begin{maximai}
+   A;
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&1&3\cr
+    {{3}\over{2}}&0&-{{1}\over{2}}\cr 0&2&1\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item Intercambiar la fila $1$ y $2$ de la matriz $A$ (la matriz $A$
+  no se modifica).
+  \begin{maximai}
+   rowswap(A,1,2);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi {{3
+    }\over{2}}&0&-{{1}\over{2}}\cr 1&1&3\cr 0&2&1\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item Restar a la fila $2$ la fila $1$ multiplicada por $3$ (la matriz
+  $A$ no se modifica).
+  \begin{maximai}
+   rowop(A,2,1,3);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&1&3\cr
+    -{{3}\over{2}}&-3&-{{19}\over{2}}\cr 0&2&1\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+ \item Restar a la fila $3$ la fila $1$ multiplicada por $5$ (la matriz
+  $A$ no se modifica).
+  \begin{maximai}
+   rowop(A,3,1,5);
+  \end{maximai}\begin{maximao}
+   \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&1&3\cr
+    {{3}\over{2}}&0&-{{1}\over{2}}\cr -5&-3&-14\cr
+   \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \end{maximao}
+\end{itemize}

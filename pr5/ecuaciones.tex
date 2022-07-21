@@ -1,0 +1,85 @@
+%!TeX root=main.tex
+
+\section{Ecuaciones paramétricas e implícitas de un
+subespacio}
+
+Las ecuaciones paramétricas a partir de una base de
+un subespacio vectorial se pueden escribir directamente
+como la combinación lineal de la base usando los parámetros.
+
+Por ejemplo para el subespacio vectorial de $\mathbb{R}^4$
+con base $\{v_1,v_2\}$ donde
+$v_1 = (1,2,1,1)$ y $v_2 = (0,1,0,-1)$, las ecuaciones
+paramétricas usando los parámetros $a$ y $b$ se escribre en
+maxima como mostramos a continuación.
+\begin{maximai}
+ v1:[1,2,1,1]$
+\end{maximai}\begin{maximal}
+ v2:[0,1,0,-1]$
+\end{maximal}\begin{maximai}
+ ecparam:[x,y,z,t]-a*v1-b*v2;
+\end{maximai}\begin{maximao}
+ \left[ x-a , y-b-2\,a , z-a , t+b-a \right]
+\end{maximao}
+
+Para pasar de ecuaciones paramétricas a ecuaciones
+implícitas, se usará la técnica de eliminación de
+paramétros, para ello se usa la orden \maximain{eliminate}.
+\begin{maximai}
+ ecimplic:eliminate(ecparam, [a,b]);
+\end{maximai}\begin{maximao}
+ \left[ y-3\,x+t , x-z \right]
+\end{maximao}
+De lo anterior deducimos que unas ecuaciones implícitas
+del espacio vectorial anterior es
+\begin{align*}
+ y-3x+t & = 0\\
+ x-z & = 0\\
+\end{align*}
+
+Para pasar de ecuaciones implícitas a ecuaciones paramétricas
+basta usar el comando \maximain{linsolve}.
+\begin{maximai}
+ linsolve([y-3*x+t=0, x-z=0],[x,y,z,t]);
+\end{maximai}\begin{maximao}
+ \left[ x={\it \%r}_{2} , y=3\,{\it \%r}_{2}-{\it \%r}_{1} , z=
+ {\it \%r}_{2} , t={\it \%r}_{1} \right]
+\end{maximao}
+
+Por último veamos veamos cómo deducir unas ecuaciones implícitas
+directamente a partir de una base. La manera es escalonar la
+siguiente matriz (no se debe usar \maximain{echelon} ya que depende
+de parámetros).
+\begin{maximai}
+ A:transpose(matrix(v1,v2,[x,y,z,t]));
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&0&x\cr
+  2&1&y\cr 1&0&z\cr 1&-1&t\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}\begin{maximai}
+ A1:rowop(A,2,1,A[2,1]);
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&0&x\cr
+  0&1&y-2\,x\cr 1&0&z\cr 1&-1&t\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}\begin{maximai}
+ A2:rowop(A1,3,1,A[3,1]);
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&0&x\cr
+  0&1&y-2\,x\cr 0&0&z-x\cr 1&-1&t\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}\begin{maximai}
+ A3:rowop(A2,4,1,A[4,1]);
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&0&x\cr
+  0&1&y-2\,x\cr 0&0&z-x\cr 0&-1&t-x\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}\begin{maximai}
+ A4:rowop(A3,4,2,A[4,2]);
+\end{maximai}\begin{maximao}
+ \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 1&0&x\cr
+  0&1&y-2\,x\cr 0&0&z-x\cr 0&0&y-3\,x+t\cr
+ \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+\end{maximao}
+De las últimas dos filas de la tercera columna se deducen las ecuaciones
+implícitas del subespacio vectorial.
