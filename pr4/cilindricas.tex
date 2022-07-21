@@ -1,0 +1,30 @@
+%!TeX root=main.tex
+
+\section{Coordenadas cilíndricas}
+Recordamos que el cambio de variable a coordenadas cilíndricas es
+\begin{equation*}
+ x=r\cos\alpha,
+ \;
+ y=r\sen\alpha,
+ \;
+ z=z,
+ \quad
+ r\geq0,
+ \;
+ \alpha\in[0,2\pi].
+\end{equation*}
+Por ejemplo para calcular el volumen de un cilindro de altura $3$
+y de radio $\sqrt{5}$
+se debería calcular
+\begin{equation*}
+ \iint_{Q} f(r,\alpha,z)r\,\mathrm{d}A,
+ \quad
+ \text{ donde }
+ Q = [0,\sqrt{5}]\times[0,2\pi]\times[0,3],
+ f(r,\alpha,z) = 1.
+\end{equation*}
+\begin{maximai}
+ integrate(integrate(integrate(r,r,0,sqrt(5)), %alpha, 0, 2*%pi),z,0,3);
+\end{maximai}\begin{maximao}
+ 15\pi
+\end{maximao}

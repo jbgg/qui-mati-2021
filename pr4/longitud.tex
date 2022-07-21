@@ -1,0 +1,22 @@
+%!TeX root=main.tex
+
+\section{Cálculo de longitud de una curva}
+La longitud de la curva dada como la gráfica de una función
+$f(x)$
+en un intervalo
+$[a,b]$
+se calcula por la expresión
+\begin{equation*}
+ \int_{a}^{b} \sqrt{1+\left(f'(x)\right)^2}\,\mathrm{d}x.
+\end{equation*}
+Por ejemplo, para calcular la longitud del arco de curva de
+$9y^2 = 4x^3$ considerando la parte con segunda coordenada positiva
+para el intervalo $[0,3]$.
+Se podría calcular como se muestra a continuación.
+\begin{maximai}
+ f(x):=sqrt(4/9*x^3)$
+\end{maximai}\begin{maximai}
+ integrate(sqrt(1+diff(f(x),x)^2),x,0,3);
+\end{maximai}\begin{maximao}
+ \frac{14}{3}
+\end{maximao}

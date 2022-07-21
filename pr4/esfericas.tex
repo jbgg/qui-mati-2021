@@ -1,0 +1,32 @@
+%!TeX root=main.tex
+
+\section{Coordenadas esféricas}
+Recordamos que el cambio de variable a coordenadas esféricas es
+\begin{equation*}
+ x=r\cos\alpha\sen\beta,
+ \;
+ y=r\sen\alpha\sen\beta,
+ \;
+ z=r\cos\beta,
+ \quad
+ r\geq0,
+ \;
+ \alpha\in[0,2\pi],
+ \;
+ \beta\in[0,\pi].
+\end{equation*}
+Por ejemplo para calcular el volumen de una esfera de
+ecuación $x^2+y^2+z^2 = 9$
+se debería calcular
+\begin{equation*}
+ \iint_{Q} f(r,\alpha,\beta)r^2\sen\beta\,\mathrm{d}A,
+ \quad
+ \text{ donde }
+ Q = [0,3]\times[0,2\pi]\times[0,\pi],
+ f(r,\alpha,\beta) = 1.
+\end{equation*}
+\begin{maximai}
+ integrate(integrate(integrate(r^2*sin(%beta),r,0,3), %alpha, 0, 2*%pi),%beta,0,%pi);
+\end{maximai}\begin{maximao}
+ 36\pi
+\end{maximao}

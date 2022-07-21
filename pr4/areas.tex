@@ -1,0 +1,100 @@
+%!TeX root=main.tex
+
+\section{Cálculo de áreas}
+El problema del cálculo de áreas se puede resolver con el uso
+de integrales definidas.
+Por ejemplo para calcular el área entre la parábola que se muestra
+\begin{figure}
+ \centering
+ \begin{tikzpicture}[scale=1,domain=-2:2,samples=400]
+  \draw[gray,domain=-2.1:2.1] plot (\x, 0);
+  \draw[gray,domain=-.1:4.1] plot (0, \x);
+  \foreach \i in {-2,...,2}{
+   \draw (\i,-.1) -- (\i,.1) node[label=below:$\i$]{};
+  }
+  \foreach \i in {1,...,4}{
+   \draw (-.1,\i) -- (.1,\i) node[right]{$\i$};
+  }
+  \draw[blue, domain=-2:2] plot (\x, {-(\x)^2+4});
+ \end{tikzpicture}
+ \caption{Gráfica de la parábola $y=-x^2+4$}
+ \label{fig:gr1}
+\end{figure}
+en la gráfica de la Figura \ref{fig:gr1} con el eje de abscisa
+entre los puntos $x=-2$ y $x=2$,
+se puede hacer lo que se muestra en el siguiente comando.
+\begin{maximai}
+ integrate(-x^2+4,x,-2,2);
+\end{maximai}\begin{maximao}
+ \frac{32}{3}
+\end{maximao}
+
+Si se quiere calcular el área encerrada entre la gráfica de la
+función $f(x) = \sen(x)$ y el eje de abscisa en el intervalo
+$[0,2\pi]$ no se puede realizar simplemente con
+\begin{maximai}
+ integrate(sin(x),x,0,2*%pi);
+\end{maximai}\begin{maximao}
+ 0
+\end{maximao}
+ya que el área sería cero,
+pero como se puede ver en la Figura \ref{fig:gr2}
+el área debe ser positiva.
+En este caso hay que estudiar el signo de la función ya que
+en algunos puntos la función es negativa.
+Sabemos que la función se hace cero dentro del intervalo
+$[0,2\pi]$ en los puntos
+$x=0$, $x=\pi$ y $x=2\pi$.
+Y la función es positiva en el intervalo $[0,\pi]$
+y negativa en el intervalo $[\pi,2\pi]$
+por tanto el área sería la siguiente.
+\begin{maximai}
+ integrate(sin(x),x,0,%pi)+integrate(-sin(x),x,%pi,2*%pi);
+\end{maximai}\begin{maximao}
+ 4
+\end{maximao}
+\begin{figure}[hb]
+ \centering
+ \begin{tikzpicture}[scale=1,domain=0:2*pi,samples=400]
+  \draw[gray,domain=0:2*pi] plot (\x, 0);
+  \draw[gray,domain=-1:1] plot (0, \x);
+  \draw (0,-.1) -- (0,.1) node[right,label=below:$0$]{};
+  \draw (2*pi,-.1) -- (2*pi,.1) node[label=below:$2\pi$]{};
+  \draw (-.1,-1) -- (.1,-1) node[right]{$-1$};
+  \draw (-.1,1) -- (.1,1) node[right]{$1$};
+  \draw[blue, domain=0:2*pi] plot (\x, {sin(\x r)});
+ \end{tikzpicture}
+ \caption{Gráfica de la función $y=\sen(x)$}
+ \label{fig:gr2}
+\end{figure}
+
+Si se requiere calcular el área encerrada entre dos gráficas,
+por ejemplo para las función $f(x)=x$ e $g(x)=x^2$,
+se deberá buscar primero los puntos de corte de las gráficas.
+Una manera de realizarlo sería resolver la ecuación
+$x=x^2$.
+\begin{maximai}
+ f(x):=x$
+\end{maximai}\begin{maximal}
+ g(x):=x^2$
+\end{maximal}\begin{maximai}
+ solve(f(x)=g(x),x);
+\end{maximai}\begin{maximao}
+ \left[ x=0\operatorname{,}x=1\right]
+\end{maximao}
+Lo siguiente que habrá que saber es qué función está por arriba
+y cuál está por abajo.
+Para ello evaluamos en algún punto intermedio de cada intervalo
+que se haya obtenido, en este caso solamente existe un intervalo.
+\begin{maximai}
+ is(f(.5)>g(.5));
+\end{maximai}\begin{maximao}
+ \mbox{%default
+  true}
+\end{maximao}
+Por tanto el área se calculará con la siguiente expresión.
+\begin{maximai}
+ integrate(f(x)-g(x), x, 0, 1);
+\end{maximai}\begin{maximao}
+ \frac{1}{6}
+\end{maximao}

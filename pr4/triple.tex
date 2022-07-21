@@ -1,0 +1,29 @@
+%!TeX root=main.tex
+
+\section{Integrales triples}
+El cálculo de integrales triples es análogo al de
+integrales dobles. Veamos a continuación la resolución
+de un par de ejemplos.
+
+\begin{equation*}
+ \iiint_{Q} (x+y+z+xyz)\,\mathrm{d}V,
+ \text{ donde }
+ Q = [0,1]\times[0,2]\times[0,1].
+\end{equation*}
+\begin{maximai}
+ integrate(integrate(integrate(x+y+z+x*y*z,x,0,1),y,0,2),z,0,1);
+\end{maximai}\begin{maximao}
+ {{9}\over{2}}
+\end{maximao}
+
+\begin{equation*}
+ \iiint_{Q} 6xyz\,\mathrm{d}V,
+ \text{ donde }
+ Q = \{(x,y,z)\in\mathbb{R}^3 : 0\leq x\leq 1, 0\leq y\leq 4-x,
+ 0\leq z\leq 4-x-y\}.
+\end{equation*}
+\begin{maximai}
+ integrate(integrate(integrate(6*x*y*z,z,0,4-x-y),y,0,4-x),x,0,1);
+\end{maximai}\begin{maximao}
+ {{1909}\over{120}}
+\end{maximao}

@@ -1,0 +1,33 @@
+%!TeX root=main.tex
+
+\section{Integrales dobles}
+Para calcular integrales dobles se usa el comando
+\maximain{integrate} dos veces, una por cada integración
+respecto la variable correspondiente.
+
+Por ejemplo para calcular
+$\iint_{R} (xy+y+1)\,\mathrm{d}A$,
+donde $R=[0,2]\times[0,1]$ se puede hacer lo siguiente.
+\begin{maximai}
+ integrate(integrate(x*y+y+1,x,0,2),y,0,1);
+\end{maximai}\begin{maximao}
+ 4
+\end{maximao}
+También se pueden intercambiar el orden de integración.
+\begin{maximai}
+ integrate(integrate(x*y+y+1,y,0,1),x,0,2);
+\end{maximai}\begin{maximao}
+ 4
+\end{maximao}
+
+Otro ejemplo, sería calcular la siguiente integral doble
+\begin{equation*}
+ \iint_{R} (-x^2y-x-3)\,\mathrm{d}A,
+ \text{ donde }
+ R = \{(x,y)\in\mathbb{R}^2 : 2\leq y\leq 2+x, 0\leq x\leq 1\}.
+\end{equation*}
+\begin{maximai}
+ integrate(integrate(-x^2*y-x-3,y,2,2+x),x,0,1);
+\end{maximai}\begin{maximao}
+ -{{73}\over{30}}
+\end{maximao}

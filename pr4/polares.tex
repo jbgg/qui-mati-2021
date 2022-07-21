@@ -1,0 +1,27 @@
+%!TeX root=main.tex
+
+\section{Coordenadas polares}
+Recordamos que el cambio de variable a coordenadas polares es
+\begin{equation*}
+ x=r\cos\alpha,
+ \;
+ y=r\sen\alpha,
+ \quad
+ r\geq0,
+ \;
+ \alpha\in[0,2\pi].
+\end{equation*}
+Por ejemplo para calcular el área de un círculo de radio $2$,
+se debería calcular
+\begin{equation*}
+ \iint_{R} f(r,\alpha)r\,\mathrm{d}A,
+ \quad
+ \text{ donde }
+ R = [0,2]\times[0,2\pi],
+ f(r,\alpha) = 1.
+\end{equation*}
+\begin{maximai}
+ integrate(integrate(r,r,0,2), %alpha, 0, 2*%pi);
+\end{maximai}\begin{maximao}
+ 4\pi
+\end{maximao}
