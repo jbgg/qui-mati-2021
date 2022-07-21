@@ -1,0 +1,4 @@
+g(x,y):= if (x=0 and y=0) then 0 else x*y*(x^2-y^2)/(x^2+y^2)$
+plot2d([contour, g(x,y)], [x,-1,1], [y,-1,1],
+ [pdf_file, "./wxcontour_g.pdf"]
+)$

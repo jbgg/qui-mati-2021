@@ -1,0 +1,11 @@
+h(x,y):= x^2*exp(1-x^2-y^2/2)$
+load(draw)$
+draw3d(
+ file_name = "./wxdraw3d_h",
+ terminal = pdf,
+ enhanced3d = true,
+ colorbox = false,
+ surface_hide = true,
+ contour = both,
+ explicit(h(x,y), x, -3, 3, y, -2, 2)
+)$

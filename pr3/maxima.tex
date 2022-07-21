@@ -1,0 +1,82 @@
+
+\newcounter{maximaic}
+\newcounter{maximaoc}
+
+\setcounter{maximaic}{1}
+\setcounter{maximaoc}{0}
+
+\newenvironment{maximai}
+{\noindent
+
+ {\color{red}\bfseries (\% i\arabic{maximaic}) }
+ \color{blue}\verb}{
+\stepcounter{maximaic}
+\stepcounter{maximaoc}
+
+}
+\newenvironment{maximal}
+{\noindent
+ \phantom{\color{red}\bfseries (\% i\arabic{maximaic}) }
+ \color{blue}\verb}{
+
+}
+
+\newenvironment{maximao}
+{
+ {\bfseries\color{orange}(\% o\arabic{maximaoc}) }
+ $ \displaystyle
+  }{$
+
+}
+
+\newenvironment{maximat}
+{
+ {\bfseries\color{orange}(\% t\arabic{maximaoc}) }
+  }{
+
+}
+
+%\newverbcommand{\maximain}{\color{blue}}{}
+%\newcommand{maximain}{#1}
+\newcommand{\maximain}[1]{\textcolor{blue}{\texttt{#1}}}
+
+\newenvironment{maximaiold}
+{\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ (\% o\arabic{maximaic})
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}\verb
+ }
+ {
+\end{minipage}
+\stepcounter{maximaic}
+}
+
+\newenvironment{maximan}[1]
+{\newline\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ (\% i#1)  
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}\verb
+ }
+ { 
+\end{minipage}
+}
+
+\newenvironment{maximaold}
+{\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ \phantom{(}
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}\verb
+ }
+ { 
+\end{minipage}
+}
+
